@@ -5,26 +5,28 @@ import './styles.css';
 export default class Hot extends Component{
   state = {
     posts: [],
+    loading: false,
   }
 
   componentDidMount(){
     this.loadPosts();
   }
 
-  loadPosts = async (item) => {
-    const limit = 10;
-    const response = await api.get(`/hot.json?${limit}`);
+  loadPosts = async () => {
+    // const limit = 10;
+    const response = await api.get('/hot.json?limit=8');
     console.log(response);
-    const post = await response.data;
+    const post = await response.data.data.children;
     console.log(post);
-    this.setState({ posts: post });
+    this.setState({ posts: post, loading: false });
+  };
 
-    // await api.get(`/hot.json?${limit}`).then(res => {
-    //   console.log('Res: ', res);
-    //   this.setState({ posts: res.data.data.data.children });
-    // }).catch(e => {
-    //   console.log('Erro: ', e);
-    // });
+  loadMore = () => {
+    this.setState({
+      // posts: this.state.posts,
+      loading: true,
+    },
+    this.loadPosts());
   };
 
   render(){
@@ -32,13 +34,23 @@ export default class Hot extends Component{
 
     return (
       <div className ="product-list">
-        <p>Teste</p>
-        {posts.map(post => (
-          <article key={post.id}>
-            <strong>{post.title}</strong>
-            <p>{posts.description}</p>
+        {posts.map((post, i) => (
+          <article key={i}>
+            <img className="thumbnail"
+              alt="thumbnail"
+              src={post.data.thumbnail}
+            />
+            <p><strong>{post.data.title}</strong></p>
+            <p>enviado a {post.data.created} por <span>{post.data.author}</span></p>
+            <p>{post.data.url}</p>
           </article>
         ))}
+        <div className="action">
+          <button onClick={() => this.loadMore()}>
+            + Veja mais
+          </button>
+        </div>
+        {this.state.loading ? <p>Loading...</p> : ""}
       </div>
     )
   }

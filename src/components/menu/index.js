@@ -1,44 +1,23 @@
 import React, { Component } from 'react';
-
-const itemMenu = [
-  {
-    link: 'Hot'
-  },
-  {
-    link: 'New'
-  },
-  {
-    link: 'Rising'
-  },
-]
+import { NavLink } from 'react-router-dom';
+import './styles.css';
 
 export default class Menu extends Component {
-  state = {
-    selected: '',
-  }
-
-  onClick = e => {
-    e.preventDefault();
-    this.setState({
-      selected: !this.state.selected,
-    });
-  };
-
   render() {
     return (
-      <div className="navigation">
+      <nav className="navigation">
         <ul>
-          {
-            itemMenu.map((itemLink, i) => {
-              return (
-                <li key={i} onClick={this.onClick} className={this.state.selected ? "selected" : ""}>
-                  {itemLink.link}
-                </li>
-              );
-            })
-          }
+          <li>
+            <NavLink to="/hot" className="itemMenu" activeClassName="active">Hot</NavLink>
+          </li>
+          <li>
+            <NavLink to="/new" className="itemMenu" activeClassName="active">New</NavLink>
+          </li>
+          <li>
+            <NavLink to="/rising" className="itemMenu" activeClassName="active">Rising</NavLink>
+          </li>
         </ul>
-      </div>
+      </nav>
     );
   }
 }

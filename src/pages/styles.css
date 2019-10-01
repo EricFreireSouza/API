@@ -8,8 +8,19 @@
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 20px;
   margin-bottom: 20px;
+}
+
+.product-list article a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  transition: all 0.2;
+  box-sizing: border-box;
+}
+
+.product-list article a:hover {
+  background: #eee;
 }
 
 .product-list article p {
@@ -19,25 +30,47 @@
   line-height: 1.5;
 }
 
-.product-list article a {
-  height: 42px;
-  border-radius: 5px;
-  border: 2px solid #da552f;
-  background: none;
-  margin-top: 10px;
-  color: #da552f;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2;
+.product-list article .thumbnail {
+  width: 64px;
+  height: 64px;
+  background-color: #333333;
+  display: inline-block;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  float: left;
+  margin: 0 10px 0 0;
 }
 
-.product-list article a:hover {
-  background: #da552f;
-  color: #fff;
+.product-list article p {
+  font-size: 12px;
+  line-height: 1.2;
+  color: #000;
+  font-family: "Helvetica";
+  margin: 0 0 5px;
+}
+
+.product-list article .title{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.product-list article .created span:first-child{
+  color: #666666;
+}
+
+.product-list article .created span{
+  color: #ff5500;
+}
+
+.product-list article .link{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-list article .description{
+  overflow: hidden;
 }
 
 .product-list .action {
@@ -73,4 +106,10 @@
 
 .product-list .action button:hover {
   opacity: 0.7;
+}
+
+.par {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
 }

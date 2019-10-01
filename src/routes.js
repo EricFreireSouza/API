@@ -1,19 +1,20 @@
 import React from 'react';
-
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import Menu from './components/menu';
+import Home from './pages/home';
 import Hot from './pages/hot';
-// import New from './pages/new';
-// import Rising from './pages/rising';
-import Product from './pages/product';
+import New from './pages/new';
+import Rising from './pages/rising';
 
 const Routes = () => (
   <BrowserRouter>
+    <Menu />
     <Switch>
-      <Route exact path="/" component={Hot} />
-      {/* <Route path="/New" component={New} />
-      <Route path="/Rising" component={Rising} /> */}
-      <Route path="/products/:id" component={Product} />
+      <Route exact path="/" component={Home} />
+      <Route path="/hot" component={Hot} />
+      <Route path="/new" component={New} />
+      <Route path="/rising" component={Rising} />
     </Switch>
   </BrowserRouter>
 );

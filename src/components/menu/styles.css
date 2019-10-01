@@ -1,0 +1,34 @@
+.navigation {
+  margin: 0 auto 15px;
+  max-width: 490px;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.navigation li {
+  display: flex;
+  text-transform: uppercase;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemMenu {
+  border-radius: 6px;
+  background-color: #666666;
+  color: #fff;
+  width: 160px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.itemMenu:hover,
+.active {
+  background-color: #ff5500;
+}

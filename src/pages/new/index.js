@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import api from "../../services/api";
 import '../styles.css';
 
-export default class Hot extends Component{
+export default class New extends Component{
   state = {
     posts: [],
     loading: false,
@@ -16,7 +16,7 @@ export default class Hot extends Component{
 
   loadPosts = async () => {
     // if (this.state.limit > this.state.total) { return ; }
-    const response = await api.get(`/hot.json?limit=${this.state.limit}`);
+    const response = await api.get(`/new.json?limit=${this.state.limit}`);
     const post = await response.data.data.children;
     this.setState({ posts: post, loading: false, limit: (this.state.limit * 2), total: post.length });
   };
